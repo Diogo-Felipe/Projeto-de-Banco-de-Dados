@@ -1,10 +1,10 @@
 -- 
 -- Inserts Pavimentação Rodovia PA-140 BD de Obras
--- Ver. 1.0 em 15/02/2020
+-- Ver. 1.0.1 em 19/02/2020
 -- Autor: Diogo L.C. Felipe
 --
 
-INSERT INTO Obras ( descricao ) VALUES ( 'Pavimentação Rodovia PA-140' );
+INSERT INTO Obra ( descricao ) VALUES ( 'Pavimentação Rodovia PA-140' );
 
 INSERT INTO Profissao ( nome ) VALUES ( 'Agrimessor' );
 
@@ -16,7 +16,7 @@ INSERT INTO Trabalha (
     datainicio,
     datafim,
     idobra,
-    idpessoal,
+    idpessoa,
     idprof
 ) VALUES ('15/01/2017', NULL, 2, 8, 1 );
 
@@ -24,7 +24,7 @@ INSERT INTO Trabalha (
     datainicio,
     datafim,
     idobra,
-    idpessoal,
+    idpessoa,
     idprof
 ) VALUES ('15/01/2017', NULL, 2, 9, 1 );
 
@@ -32,6 +32,6 @@ INSERT INTO Trabalha (
     datainicio,
     datafim,
     idobra,
-    idpessoal,
+    idpessoa,
     idprof
 ) VALUES ('15/01/2017', '30/11/2018', 2, 10, 4 );
