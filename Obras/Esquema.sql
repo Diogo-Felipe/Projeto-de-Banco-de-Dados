@@ -7,6 +7,7 @@
 CREATE SEQUENCE seqobra;
 CREATE SEQUENCE seqprofissional;
 CREATE SEQUENCE seqprofissao;
+create sequence seqtrabalha;
 
 CREATE TABLE Obra(
     idobra int DEFAULT(nextval('seqobra')),
@@ -30,13 +31,15 @@ CREATE TABLE Profissao(
 );
 
 CREATE TABLE Trabalha(
-    datainicio varchar(10) NOT NULL,
-    datafim varchar(10),
+    idtrabalha int DEFAULT(nextval('seqtrabalha')),
+    datainicio date NOT NULL,
+    datafim date,
     idobra int,
     idpessoa int,
     idprof int,
-    CONSTRAINT pk_composta_trabalha PRIMARY KEY (idobra, idpessoa, idprof),
+    CONSTRAINT pk_trabalha PRIMARY KEY (idtrabalha),
     CONSTRAINT fk_obra FOREIGN KEY (idobra) REFERENCES Obras (idobra),
     CONSTRAINT fk_profissional FOREIGN KEY (idpessoa) REFERENCES Profissional (idpessoa),
-    CONSTRAINT fk_profissao FOREIGN KEY (idprof) REFERENCES Profissao (idprof)
+    CONSTRAINT fk_profissao FOREIGN KEY (idprof) REFERENCES Profissao (idprof),
+    CONSTRAINT ck_datas CHECK (datainicio < datafim)
 );
