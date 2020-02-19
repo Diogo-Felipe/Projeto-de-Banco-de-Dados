@@ -1,6 +1,6 @@
 -- 
 -- Esquema Geração BD de Obras
--- Ver. 1.0.1 em 19/02/2020
+-- Ver. 1.1.0 em 19/02/2020
 -- Autor: Diogo L.C. Felipe
 --
 
@@ -41,5 +41,6 @@ CREATE TABLE Trabalha(
     CONSTRAINT fk_obra FOREIGN KEY (idobra) REFERENCES Obras (idobra),
     CONSTRAINT fk_profissional FOREIGN KEY (idpessoa) REFERENCES Profissional (idpessoa),
     CONSTRAINT fk_profissao FOREIGN KEY (idprof) REFERENCES Profissao (idprof),
-    CONSTRAINT ck_datas CHECK (datainicio < datafim)
+    CONSTRAINT ck_datas CHECK (datainicio < datafim),
+    CONSTRAINT uk_unique UNIQUE (datainicio, idobra, idpessoa, idprof)
 );
