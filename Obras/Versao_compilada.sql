@@ -204,3 +204,24 @@ SELECT idobra, descricao,
         GROUP BY o.idobra
     ) Arquitetos
 FROM obra op;
+
+SELECT idobra, descricao,
+    (
+        SELECT count(*)
+        FROM Profissional p
+            INNER JOIN Trabalha t ON p.idpessoa = t.idpessoa
+            INNER JOIN obra o ON t.idobra = o.idobra
+            INNER JOIN Profissao pr ON t.idprof = pr.idprof
+        WHERE UPPER ( pr,nome ) LIKE '%ARQ%'
+            AND o.idobra = op.idobra
+        GROUP BY o.idobra
+    ) / (
+        SELECT count(*)
+        FROM Profissional p
+            INNER JOIN Trabalha t ON p.idpessoa = t.idpessoa
+            INNER JOIN obra o ON t.idobra = o.idobra
+            INNER JOIN Profissao pr ON t.idprof = pr.idprof
+        WHERE o.idobra = op.idobra
+        GROUP BY o.idobra
+    ) * 100 "Percentual de arquitetos"
+FROM obra op;
