@@ -189,3 +189,18 @@ SELECT nome FROM Profissional
     INNER JOIN Obra ON Trabalha.idobra = Obra.idobra
 WHERE Obra.descricao LIKE '%Eiffel%'
 AND Trabalha.datafim = NULL;
+
+-- Subqueries
+
+SELECT idobra, descricao, 
+    (
+        SELECT count(*)
+        FROM Profissional p
+            INNER JOIN Trabalha t ON p.idpessoa = t.idpessoa
+            INNER JOIN obra o ON t.idobra = o.idobra
+            INNER JOIN Profissao pr ON t.idprof = pr.idprof
+        WHERE UPPER ( pr,nome ) LIKE '%ARQ%'
+            AND o.idobra = op.idobra
+        GROUP BY o.idobra
+    ) Arquitetos
+FROM obra op;
