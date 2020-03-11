@@ -206,7 +206,7 @@ SELECT idobra, descricao,
 FROM obra op;
 
 SELECT idobra, descricao,
-    1.0 * (
+    round(1.0 * (
         SELECT count(*)
         FROM Profissional p
             INNER JOIN Trabalha t ON p.idpessoa = t.idpessoa
@@ -223,5 +223,5 @@ SELECT idobra, descricao,
             INNER JOIN Profissao pr ON t.idprof = pr.idprof
         WHERE o.idobra = op.idobra
         GROUP BY o.idobra
-    ) * 100 "Percentual de arquitetos"
+    ) * 100, 2) "Percentual de arquitetos"
 FROM obra op;
