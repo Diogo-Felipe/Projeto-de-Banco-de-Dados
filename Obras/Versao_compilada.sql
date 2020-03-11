@@ -206,7 +206,7 @@ SELECT idobra, descricao,
 FROM obra op;
 
 SELECT idobra, descricao,
-    (
+    1.0 * (
         SELECT count(*)
         FROM Profissional p
             INNER JOIN Trabalha t ON p.idpessoa = t.idpessoa
