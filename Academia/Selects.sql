@@ -4,7 +4,7 @@ SELECT Aluno.nome FROM Aluno
     INNER JOIN Modalidade ON Modalidade.idModalidade = ItensMatricula.idModalidade
 WHERE Modalidade.descricao LIKE '%atação%';
 
-SELECT Modalidade.descricao,
+SELECT mop.descricao,
     (
         SELECT count(*) 
         FROM Aluno a 
@@ -18,7 +18,7 @@ SELECT Modalidade.descricao,
 FROM Modalidade mop;
 
 
-SELECT Modalidade.descricao,
+SELECT mop.descricao,
     (
         SELECT count(*) 
         FROM Aluno a 
@@ -50,7 +50,7 @@ SELECT Modalidade.descricao,
 FROM Modalidade mop;
 
 
-SELECT Modalidade.descricao,
+SELECT mop.descricao,
     (
         SELECT count(*) 
         FROM Matricula ma
@@ -61,3 +61,12 @@ SELECT Modalidade.descricao,
     ) Matriculas
 FROM Modalidade mop
 ORDER BY Matriculas DESC;
+
+SELECT mop.descricao 'Possuem Vagas'
+FROM Modalidade mo
+    INNER JOIN ItensMatricula im ON im.idModalidade = mo.idModalidade
+    INNER JOIN Matricula ma ON ma.idMatricula = im.idMatricula
+WHERE mo.qtdVagas > (
+    SELECT count(*) 
+    from Matricula
+);
