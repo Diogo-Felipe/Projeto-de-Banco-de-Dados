@@ -82,3 +82,5 @@ SELECT ap.nome,
     ) Quantidade
 FROM Aluno ap;
 
+SELECT count(*) FROM Matricula
+WHERE dataMatricula BETWEEN '01/03/2020' AND '01/04/2020';
