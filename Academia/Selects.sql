@@ -70,3 +70,15 @@ WHERE mo.qtdVagas > (
     SELECT count(*) 
     from Matricula
 );
+
+SELECT ap.nome,
+    (
+        SELECT max(count(*)) FROM Modalidade
+            INNER JOIN ItensMatricula im ON im.idModalidade = mo.idModalidade
+            INNER JOIN Matricula ma ON ma.idMatricula = im.idMatricula
+            INNER JOIN Aluno a ON ma.matricula = a.matricula
+        WHERE a.matricula = ap.matricula
+        GROUP BY a.matricula
+    ) Quantidade
+FROM Aluno ap;
+
