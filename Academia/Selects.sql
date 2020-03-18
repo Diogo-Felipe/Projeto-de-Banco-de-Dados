@@ -13,5 +13,6 @@ SELECT Modalidade.descricao,
             INNER JOIN Modalidade mo ON mo.idModalidade = im.idModalidade
             WHERE Matricula.dataMatricula BETWEEN '01/01/2020' AND '21/12/2020'
                 AND mo.idModalidade = mop.idModalidade
+            GROUP BY mo.idModalidade
     ) Alunos
 FROM Modalidade mop;
