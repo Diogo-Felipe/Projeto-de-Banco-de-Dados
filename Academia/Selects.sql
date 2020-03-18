@@ -48,3 +48,16 @@ SELECT Modalidade.descricao,
             GROUP BY mo.idModalidade
     ) * 100, 2) Percentual
 FROM Modalidade mop;
+
+
+SELECT Modalidade.descricao,
+    (
+        SELECT count(*) 
+        FROM Matricula ma
+            INNER JOIN ItensMatricula im ON im.idMatricula = ma.idMatricula
+            INNER JOIN Modalidade mo ON mo.idModalidade = im.idModalidade
+            WHERE mo.idModalidade = mop.idModalidade
+            GROUP BY mo.idModalidade
+    ) Matriculas
+FROM Modalidade mop
+ORDER BY Matriculas DESC;
