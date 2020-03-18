@@ -199,7 +199,7 @@ SELECT idobra, descricao,
             INNER JOIN Trabalha t ON p.idpessoa = t.idpessoa
             INNER JOIN obra o ON t.idobra = o.idobra
             INNER JOIN Profissao pr ON t.idprof = pr.idprof
-        WHERE UPPER ( pr,nome ) LIKE '%ARQ%'
+        WHERE UPPER ( pr.nome ) LIKE '%ARQ%'
             AND o.idobra = op.idobra
         GROUP BY o.idobra
     ) Arquitetos
