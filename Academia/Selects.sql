@@ -11,7 +11,7 @@ SELECT mop.descricao,
             INNER JOIN Matricula ma ON ma.matricula = a.matricula
             INNER JOIN ItensMatricula im ON im.idMatricula = ma.idMatricula
             INNER JOIN Modalidade mo ON mo.idModalidade = im.idModalidade
-            WHERE Matricula.dataMatricula BETWEEN '01/01/2020' AND '21/12/2020'
+            WHERE ma.dataMatricula BETWEEN '01/01/2020' AND '21/12/2020'
                 AND mo.idModalidade = mop.idModalidade
             GROUP BY mo.idModalidade
     ) Alunos
