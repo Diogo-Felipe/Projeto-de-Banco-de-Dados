@@ -37,7 +37,6 @@ SELECT mop.descricao,
             INNER JOIN Modalidade mo ON mo.idModalidade = im.idModalidade
             WHERE ma.situacao = 'A'
                 AND mo.idModalidade = mop.idModalidade
-            GROUP BY mo.idModalidade
     ) / (
         SELECT count(*) 
         FROM Aluno a 
@@ -45,7 +44,6 @@ SELECT mop.descricao,
             INNER JOIN ItensMatricula im ON im.idMatricula = ma.idMatricula
             INNER JOIN Modalidade mo ON mo.idModalidade = im.idModalidade
             WHERE ma.situacao = 'A'
-            GROUP BY mo.idModalidade
     ) * 100, 2) Percentual
 FROM Modalidade mop;
 
