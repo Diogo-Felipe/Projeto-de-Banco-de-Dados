@@ -1,4 +1,4 @@
-INSERT INTO Academia ( cnpj, nome ) VALUES ( '12345678901234', 'diogoFit');
+INSERT INTO Academia ( cnpj, nome ) VALUES ( '12345678901234', 'diogoFit2000');
 
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 1, 'Diogo Felipe', '12345678901234' );
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 2, 'Andre Solza', '12345678901234' );
