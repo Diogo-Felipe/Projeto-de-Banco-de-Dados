@@ -60,7 +60,7 @@ SELECT mop.descricao,
 FROM Modalidade mop
 ORDER BY Matriculas DESC;
 
-SELECT mop.descricao 'Possuem Vagas'
+SELECT mo.descricao "Possuem Vagas"
 FROM Modalidade mo
     INNER JOIN ItensMatricula im ON im.idModalidade = mo.idModalidade
     INNER JOIN Matricula ma ON ma.idMatricula = im.idMatricula
