@@ -34,7 +34,7 @@ CREATE TABLE Modalidade (
     qtdVagas int,
     descricao varchar(100),
     CONSTRAINT pk_modalidade PRIMARY KEY (idModalidade),
-    CONSTRAINT ck_modadlidade_descricao CHECK (length(descricao) >= 10)
+    CONSTRAINT ck_modadlidade_descricao CHECK (length(descricao) >= 5)
 );
 
 CREATE TABLE ItensMatricula (

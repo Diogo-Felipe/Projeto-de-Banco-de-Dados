@@ -12,15 +12,15 @@ INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 9, 'Livinho da Silva', '12345
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 10, 'Daniel de Macedo', '12345678901234' );
 
 INSERT INTO Modalidade (qtdVagas, descricao)
-VALUES( 50, "Musculação");
+VALUES( 50, 'Musculação');
 INSERT INTO Modalidade (qtdVagas, descricao)
-VALUES( 15, "Dança");
+VALUES( 15, 'Dança');
 INSERT INTO Modalidade (qtdVagas, descricao)
-VALUES( 10, "Spinning");
+VALUES( 10, 'Spinning');
 INSERT INTO Modalidade (qtdVagas, descricao)
-VALUES( 15, "Funcional");
+VALUES( 15, 'Funcional');
 INSERT INTO Modalidade (qtdVagas, descricao)
-VALUES( 10, "Natação");
+VALUES( 10, 'Natação');
 
 INSERT INTO Matricula (matricula, situacao, dataMatricula)
 VALUES(1, 'A', '01/01/2019');
