@@ -3,7 +3,7 @@ CREATE SEQUENCE seqItemMatricula;
 CREATE SEQUENCE seqModalidade;
 
 CREATE TABLE Academia (
-    cnpj int,
+    cnpj varchar(14),
     nome varchar(100),
     CONSTRAINT pk_academia PRIMARY KEY (cnpj),
     CONSTRAINT ck_academia_nome CHECK (length(nome) >= 10)
@@ -11,7 +11,7 @@ CREATE TABLE Academia (
 
 CREATE TABLE Aluno (
     matricula int,
-    cnpj int,
+    cnpj varchar(14),
     nome varchar(50),
     CONSTRAINT pk_aluno PRIMARY KEY (matricula),
     CONSTRAINT fk_academia FOREIGN KEY (cnpj) REFERENCES Academia (cnpj),
