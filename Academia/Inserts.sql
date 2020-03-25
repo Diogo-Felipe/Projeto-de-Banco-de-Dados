@@ -8,7 +8,7 @@ INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 5, 'Kevin Sarges', '123456789
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 6, 'João Gabriel', '12345678901234' );
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 7, 'Luiz Fernando', '12345678901234' );
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 8, 'Thyci Marques', '12345678901234' );
-INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 9, 'Livinho', '12345678901234' );
+INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 9, 'Livinho da Silva', '12345678901234' );
 INSERT INTO Aluno (matricula, nome, cnpj) VALUES ( 10, 'Daniel de Macedo', '12345678901234' );
 
 INSERT INTO Modalidade (qtdVagas, descricao)
