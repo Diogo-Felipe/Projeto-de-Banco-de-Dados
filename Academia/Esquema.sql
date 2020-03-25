@@ -15,7 +15,8 @@ CREATE TABLE Aluno (
     nome varchar(50),
     CONSTRAINT pk_aluno PRIMARY KEY (matricula),
     CONSTRAINT fk_academia FOREIGN KEY (cnpj) REFERENCES Academia (cnpj),
-    CONSTRAINT ck_aluno_nome CHECK (length(nome) >= 10)
+    CONSTRAINT ck_aluno_nome CHECK (length(nome) >= 10),
+    CONSTRAINT uk_matricula UNIQUE (cnpj,matricula)
 );
 
 CREATE TABLE Matricula (
