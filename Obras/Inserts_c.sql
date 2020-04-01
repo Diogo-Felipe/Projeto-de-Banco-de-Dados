@@ -1,9 +1,3 @@
--- 
--- Inserts Praça Antônio Carlos BD de Obras
--- Ver. 1.0.1 em 19/02/2020
--- Autor: Diogo L.C. Felipe
---
-
 INSERT INTO Obra ( descricao ) VALUES ( 'Praça Antônio Carlos' );
 
 INSERT INTO Trabalha ( 
