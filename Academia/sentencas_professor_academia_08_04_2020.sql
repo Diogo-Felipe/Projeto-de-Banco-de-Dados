@@ -32,6 +32,8 @@ FROM  academia acad INNER JOIN aluno alu ON acad.cnpj  = alu.cnpj
 									           (SELECT count(*) FROM aluno alu ) * 100 , 2) perc_alunos
 							   FROM   academia acad) nova ON nova.cnpj = acad.cnpj
 
+GO
+
 CREATE VIEW V_NOVA AS 
    (SELECT acad.cnpj,
                                        acad.razaosocial, 
@@ -40,6 +42,8 @@ CREATE VIEW V_NOVA AS
 		                                round((SELECT count(*) FROM aluno alu WHERE alu.cnpj = acad.cnpj ) * 1.0 / 
 									           (SELECT count(*) FROM aluno alu ) * 100 , 2) perc_alunos
 							   FROM   academia acad)
+
+GO
 --
 -- Exemplo do uso de subquery na cláusula WHERE. Como qualquer query retorna uma tabela, podemos
 -- direcionar o seu resultado e utilizar os dados dessa "tabela" em sentenças da cláusula WHERE. Lembre que
@@ -74,7 +78,7 @@ WHERE  acad.cnpj = (SELECT ac.cnpj FROM academia ac INNER JOIN aluno alu ON ac.c
 					WHERE ma.situacao = 'A'
 				    GROUP BY ac.cnpj
 				    ORDER BY count(*) DESC
-				    limit 1)
+				    limit 1);
 --
 -- Sentença para mostrar as modalidades que ainda possuem vagas disponíveis (uso de subquery no SELECT e no HAVING)
 --
