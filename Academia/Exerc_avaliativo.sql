@@ -29,7 +29,7 @@ WHERE (
         INNER JOIN aluno alu ON ac.cnpj = alu.cnpj INNER JOIN matricula mat ON alu.matricula = mat.matricula INNER JOIN itensmatricula item ON mat.idmatricula = item.idmatricula INNER JOIN modalidade moda ON item.idmodalidade = moda.idmodalidade
     WHERE mat.situacao = 'A'
         and acad.cnpj = ac.cnpj)
-                >=
+                >
     (
         (SELECT count(*) FROM matricula)
          			/
