@@ -56,3 +56,13 @@ INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (10.00, 1, 7);
 ALTER TABLE ingredientes ADD valor NUMERIC(5,2);
 
 
+-- 6 Questão
+
+UPDATE ingredientes SET valor = 0.40 WHERE idingredientes = 1;
+UPDATE ingredientes SET valor = 1.25 WHERE idingredientes = 2;
+UPDATE ingredientes SET valor = 2.50 WHERE idingredientes = 3;
+UPDATE ingredientes SET valor = 4.00 WHERE idingredientes = 4;
+UPDATE ingredientes SET valor = 3.45 WHERE idingredientes = 5;
+UPDATE ingredientes SET valor = 1.00 WHERE idingredientes = 6;
+UPDATE ingredientes SET valor = 0.80 WHERE idingredientes = 7;
+
