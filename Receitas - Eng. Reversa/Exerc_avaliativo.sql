@@ -51,3 +51,8 @@ INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (180.00, 1, 5);
 INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (240.00, 1, 6);
 INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (10.00, 1, 7);
 
+-- 5 Questão
+
+ALTER TABLE ingredientes ADD valor NUMERIC(5,2);
+
+
