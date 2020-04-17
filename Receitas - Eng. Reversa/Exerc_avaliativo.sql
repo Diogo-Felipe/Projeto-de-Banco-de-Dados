@@ -25,3 +25,29 @@ CREATE TABLE composicao (
     CONSTRAINT fk_ingredientes FOREIGN KEY (idingredientes) REFERENCES ingredientes (idingredientes)
 );
 
+-- 4 Questão
+
+INSERT INTO receita (
+    nome,
+    instrucoes
+) VALUES (
+    'Bolo de Chocolate',
+    'Bata no liquidificador os ovos, o açúcar, o achocolatado, o óleo e a água; Coloque a mistura em um...'
+);
+
+INSERT INTO ingredientes (nome, unidade) VALUES ('OVO', 'un');
+INSERT INTO ingredientes (nome, unidade) VALUES ('TRIGO', 'g');
+INSERT INTO ingredientes (nome, unidade) VALUES ('AÇUCAR', 'g');
+INSERT INTO ingredientes (nome, unidade) VALUES ('ACHOCOLATADO', 'g');
+INSERT INTO ingredientes (nome, unidade) VALUES ('OLEO', 'ml');
+INSERT INTO ingredientes (nome, unidade) VALUES ('AGUA', 'ml');
+INSERT INTO ingredientes (nome, unidade) VALUES ('FERMENTO', 'g');
+
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (3.00, 1, 1);
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (250.00, 1, 2);
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (200.00, 1, 3);
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (90.00, 1, 4);
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (180.00, 1, 5);
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (240.00, 1, 6);
+INSERT INTO composicao (qtd, idreceita, idingredientes) VALUES (10.00, 1, 7);
+
