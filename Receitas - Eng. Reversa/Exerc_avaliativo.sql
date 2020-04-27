@@ -2,6 +2,7 @@
 
 CREATE SEQUENCE seqReceita;
 CREATE SEQUENCE seqIngredientes;
+CREATE SEQUENCE seqComposicao;
 
 CREATE TABLE receita (
     idreceita int DEFAULT(nextval('seqReceita')),
@@ -18,6 +19,7 @@ CREATE TABLE ingredientes (
 );
 
 CREATE TABLE composicao (
+    idComposicao int DEFAULT(nextval('seqComposicao')),
     qtd NUMERIC(5,2),
     idreceita int,
     idingredientes int,
