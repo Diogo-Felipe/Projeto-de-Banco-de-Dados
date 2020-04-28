@@ -141,3 +141,12 @@ FROM receita rec
     INNER JOIN composicao comp ON comp.idreceita = rec.idreceita
     INNER JOIN ingredientes ing ON ing.idingredientes = comp.idingredientes
 WHERE UPPER(ing.nome) LIKE '%CHOCOLATE%';
+
+-- 8 Questão
+
+-- a
+
+SELECT i.nome, g.nome grupo, n.descricao nivel FROM ingredientes i
+    INNER JOIN grupoalimentar g ON g.grupo = i.grupo
+    INNER JOIN nivel n ON n.nivel = g.nivel
+WHERE UPPER(i.nome) LIKE '%LEO%';
