@@ -107,3 +107,17 @@ UPDATE ingredientes SET valor = 4.00 WHERE idingredientes = 4;
 UPDATE ingredientes SET valor = 3.45 WHERE idingredientes = 5;
 UPDATE ingredientes SET valor = 1.00 WHERE idingredientes = 6;
 UPDATE ingredientes SET valor = 0.80 WHERE idingredientes = 7;
+
+-- 7 Questão
+
+-- a
+
+SELECT recp.nome, 
+    (
+        SELECT SUM(ing.valor * comp.qtd) FROM ingredientes ing
+        INNER JOIN composicao comp ON comp.idingredientes = ing.idingredientes
+        INNER JOIN receita recs ON recs.idreceita = comp.idreceita
+        WHERE recs.nome = recp.nome
+    ) valor
+FROM receita recp
+WHERE UPPER(recp.nome) LIKE '%BOLO%CHOCOLATE';
