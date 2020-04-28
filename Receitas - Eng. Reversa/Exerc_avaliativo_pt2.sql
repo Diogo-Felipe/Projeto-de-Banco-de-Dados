@@ -150,3 +150,12 @@ SELECT i.nome, g.nome grupo, n.descricao nivel FROM ingredientes i
     INNER JOIN grupoalimentar g ON g.grupo = i.grupo
     INNER JOIN nivel n ON n.nivel = g.nivel
 WHERE UPPER(i.nome) LIKE '%LEO%';
+
+-- b
+
+SELECT r.nome 
+FROM receita r
+    INNER JOIN composicao c ON c.idreceita = r.idreceita
+    INNER JOIN ingredientes i ON i.idingredientes = c.idingredientes
+    INNER JOIN grupoalimentar g ON g.grupo = i.grupo
+WHERE UPPER(g.descricao) LIKE '%CARBO%';
