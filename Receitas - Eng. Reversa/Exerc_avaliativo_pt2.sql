@@ -6,6 +6,22 @@ CREATE SEQUENCE seqComposicao;
 CREATE SEQUENCE seqGrupos;
 CREATE SEQUENCE seqNivel;
 
+
+CREATE TABLE nivel(
+    nivel int DEFAULT(nextval('seqNivel')),
+    descricao varchar(100)
+    CONSTRAINT pk_nivel PRIMARY KEY (nivel),
+);
+
+CREATE TABLE grupoalimentar(
+    grupo int DEFAULT(nextval('seqGrupos')),
+    descricao varchar(100),
+    complemento varchar(100),
+    nivel int,
+    CONSTRAINT pk_grupoalimentar PRIMARY KEY (grupo),
+    CONSTRAINT fk_nivel FOREIGN KEY (nivel) REFERENCES nivel (nivel)
+);
+
 CREATE TABLE receita (
     idreceita int DEFAULT(nextval('seqReceita')),
     nome varchar(50),
@@ -20,21 +36,6 @@ CREATE TABLE ingredientes (
     grupo int,
     CONSTRAINT pk_ingredientes PRIMARY KEY (idingredientes),
     CONSTRAINT fk_grupo FOREIGN KEY (grupo) REFERENCES grupoalimentar (grupo)
-);
-
-CREATE TABLE grupoalimentar(
-    grupo int DEFAULT(nextval('seqGrupos')),
-    descricao varchar(100),
-    complemento varchar(100),
-    nivel int,
-    CONSTRAINT pk_grupoalimentar PRIMARY KEY (grupo),
-    CONSTRAINT fk_nivel FOREIGN KEY (nivel) REFERENCES nivel (nivel)
-);
-
-CREATE TABLE nivel(
-    nivel int DEFAULT(nextval('seqNivel')),
-    descricao varchar(100)
-    CONSTRAINT pk_nivel PRIMARY KEY (nivel),
 );
 
 CREATE TABLE composicao (
@@ -146,7 +147,7 @@ WHERE UPPER(ing.nome) LIKE '%CHOCOLATE%';
 
 -- a
 
-SELECT i.nome, g.nome grupo, n.descricao nivel FROM ingredientes i
+SELECT i.nome, g.descricao grupo, n.descricao nivel FROM ingredientes i
     INNER JOIN grupoalimentar g ON g.grupo = i.grupo
     INNER JOIN nivel n ON n.nivel = g.nivel
 WHERE UPPER(i.nome) LIKE '%LEO%';
