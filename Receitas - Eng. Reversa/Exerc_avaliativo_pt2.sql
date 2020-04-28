@@ -121,3 +121,15 @@ SELECT recp.nome,
     ) valor
 FROM receita recp
 WHERE UPPER(recp.nome) LIKE '%BOLO%CHOCOLATE';
+
+-- b
+
+SELECT recp.nome, 
+    (
+        SELECT SUM(ing.valor * comp.qtd) FROM ingredientes ing
+        INNER JOIN composicao comp ON comp.idingredientes = ing.idingredientes
+        INNER JOIN receita recs ON recs.idreceita = comp.idreceita
+        WHERE recs.nome = recp.nome
+    ) valor
+FROM receita recp
+ORDER BY recp.nome;
