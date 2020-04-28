@@ -160,3 +160,10 @@ FROM receita r
     INNER JOIN ingredientes i ON i.idingredientes = c.idingredientes
     INNER JOIN grupoalimentar g ON g.grupo = i.grupo
 WHERE UPPER(g.descricao) LIKE '%CARBO%';
+
+-- c
+
+SELECT n.descricao, COUNT(i.idingredientes) quantidade FROM ingredientes
+    INNER JOIN grupoalimentar g ON g.grupo = i.grupo
+    INNER JOIN nivel n ON n.nivel = g.nivel
+GROUP BY n.descricao;
