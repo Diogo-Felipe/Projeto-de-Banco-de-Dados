@@ -55,3 +55,17 @@ SELECT tocp.descricao,
 FROM TipoOcorrencia tocp
 ORDER BY quantidade DESC;
 
+-- 4
+
+GO
+
+CREATE VIEW v_cliente AS 
+    (
+        SELECT DISTINCT c.cpf, c.nome 
+        FROM Cliente c
+            INNER JOIN Ocorrencia oc ON c.cpf = oc.cpf
+    )
+
+GO
+    
+
