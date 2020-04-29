@@ -16,7 +16,7 @@ SELECT ovp.nome,
             WHERE ovs.matricula = ovp.matricula
                 AND oc.situacao LIKE 'aberta' 
                 AND EXTRACT(YEAR from oc.dataocorencia) = 2020
-    ) ocorrencias_abertas,
+    ) ocorrencias_em_aberto,
     (
         SELECT COUNT(oc.idocorrencia) 
         FROM Ocorrencia oc
@@ -24,7 +24,7 @@ SELECT ovp.nome,
             WHERE ovs.matricula = ovp.matricula
                 AND oc.situacao LIKE 'fechada' 
                 AND EXTRACT(YEAR from oc.dataocorencia) = 2020
-    ) ocorenciias_fechadas,
+    ) ocorrencias_fechadas,
     (
         round(1.0 *(
             SELECT COUNT(oc.idocorrencia) 
@@ -68,4 +68,16 @@ CREATE VIEW v_cliente AS
 
 GO
     
+-- 5
 
+SELECT ovp.nome, 
+    (
+        SELECT COUNT(oc.idocorrencia) 
+        FROM Ocorrencia oc
+            INNER JOIN Ouvidor ovs ON ovs.matricula = oc.matricula
+            WHERE ovs.matricula = ovp.matricula
+                AND oc.situacao LIKE 'fechada' 
+    ) ocorrencias_fechadas
+FROM Ouvidor ovp
+ORDER BY ocorrencias_fechadas DESC
+LIMIT 1;
