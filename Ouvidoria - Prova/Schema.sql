@@ -9,7 +9,7 @@ CREATE TABLE Ouvidor(
 );
 
 CREATE TABLE Cliente(
-    cpf int,
+    cpf varchar,
     nome varchar(100),
     CONSTRAINT pk_Cliente PRIMARY KEY (cpf)
 );
@@ -26,7 +26,7 @@ CREATE TABLE Ocorrencia(
     situacao varchar(7) DEFAULT 'aberta',
     dataocorencia date,
     matricula int,
-    cpf int,
+    cpf varchar,
     idtipo int,
     CONSTRAINT pk_Ocorrencia PRIMARY KEY (idocorrencia),
     CONSTRAINT ck_situacao CHECK (situacao = 'aberta' OR situacao = 'fechada'),
