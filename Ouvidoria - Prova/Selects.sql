@@ -42,3 +42,16 @@ SELECT ovp.nome,
         ) * 100, 2)
     ) percentual
 FROM Ouvidor ovp
+
+-- 3
+
+SELECT tocp.descricao,
+    (
+        SELECT COUNT(oc.idtipo)
+        FROM Ocorrencia oc
+            INNER JOIN TipoOcorrencia tocs ON tocs.idtipo = oc.idtipo
+        WHERE tocs.descricao = tocp.descricao
+    ) quantidade
+FROM TipoOcorrencia tocp
+ORDER BY quantidade DESC;
+

@@ -7,6 +7,7 @@ INSERT INTO Cliente (cpf, nome) VALUES ('123.123.123-12', 'Isabela');
 INSERT INTO Cliente (cpf, nome) VALUES ('234.234.234-23', 'Kevin');
 INSERT INTO Cliente (cpf, nome) VALUES ('345.345.345-34', 'Dionisio');
 INSERT INTO Cliente (cpf, nome) VALUES ('456.456.456-45', 'Perceus');
+INSERT INTO Cliente (cpf, nome) VALUES ('567.567.567-56', 'Yan');
 
 INSERT INTO TipoOcorrencia (descricao) VALUES ('reclamação');
 INSERT INTO TipoOcorrencia (descricao) VALUES ('elogio');
