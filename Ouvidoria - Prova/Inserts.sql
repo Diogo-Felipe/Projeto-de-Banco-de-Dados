@@ -31,3 +31,12 @@ VALUES ('Colocar cadeiras melhores','fechada', '27/07/2019', 3, '123.123.123-12'
 INSERT INTO Providencia (descprovidencia, idocorrencia) VALUES ('Agradecimento ao cliente', 5);
 INSERT INTO Providencia (descprovidencia, idocorrencia) VALUES ('Compra de central de ar', 6);
 INSERT INTO Providencia (descprovidencia, idocorrencia) VALUES ('Compra de cadeiras estofadas', 7);
+
+INSERT INTO Ocorrencia (descocorencia, dataocorencia, matricula, cpf, idtipo)
+VALUES ('Mesa muito baixa','01/01/2020', 1, '123.123.123-12', 1);
+INSERT INTO Ocorrencia (descocorencia, dataocorencia, matricula, cpf, idtipo)
+VALUES ('Cadeiras ótimas','02/04/2020', 2, '234.234.234-23', 2);
+INSERT INTO Ocorrencia (descocorencia, dataocorencia, matricula, cpf, idtipo)
+VALUES ('Colocar fontes de vinho','17/05/2020', 3, '345.345.345-34', 3);
+INSERT INTO Ocorrencia (descocorencia, dataocorencia, matricula, cpf, idtipo)
+VALUES ('Falta um aquário','20/06/2020', 4, '456.456.456-45', 1);
