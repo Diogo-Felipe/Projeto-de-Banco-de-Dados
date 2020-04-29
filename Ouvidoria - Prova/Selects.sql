@@ -5,3 +5,40 @@ FROM Ocorrencia oc
     INNER JOIN Ouvidor ov On ov.matricula = oc.matricula
 WHERE oc.situacao LIKE 'aberta' 
     AND EXTRACT(YEAR from oc.dataocorencia) = 2020;
+
+-- 2
+
+SELECT ovp.nome, 
+    (
+        SELECT COUNT(oc.idocorrencia) 
+        FROM Ocorrencia oc
+            INNER JOIN Ouvidor ovs ON ovs.matricula = oc.matricula
+            WHERE ovs.matricula = ovp.matricula
+                AND oc.situacao LIKE 'aberta' 
+                AND EXTRACT(YEAR from oc.dataocorencia) = 2020
+    ) ocorrencias_abertas,
+    (
+        SELECT COUNT(oc.idocorrencia) 
+        FROM Ocorrencia oc
+            INNER JOIN Ouvidor ovs ON ovs.matricula = oc.matricula
+            WHERE ovs.matricula = ovp.matricula
+                AND oc.situacao LIKE 'fechada' 
+                AND EXTRACT(YEAR from oc.dataocorencia) = 2020
+    ) ocorenciias_fechadas,
+    (
+        round(1.0 *(
+            SELECT COUNT(oc.idocorrencia) 
+            FROM Ocorrencia oc
+                INNER JOIN Ouvidor ovs ON ovs.matricula = oc.matricula
+                WHERE ovs.matricula = ovp.matricula
+                    AND oc.situacao LIKE 'fechada' 
+                    AND EXTRACT(YEAR from oc.dataocorencia) = 2020
+        ) / (
+            SELECT COUNT(oc.idocorrencia) 
+            FROM Ocorrencia oc
+                INNER JOIN Ouvidor ovs ON ovs.matricula = oc.matricula
+                WHERE ovs.matricula = ovp.matricula
+                AND EXTRACT(YEAR from oc.dataocorencia) = 2020
+        ) * 100, 2)
+    ) percentual
+FROM Ouvidor ovp
